@@ -6,6 +6,22 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>@User.Identity.Name</div>
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <input type="submit" value="Logout" />
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Register</a>
+        }
+    </div>
+
     <div>
         @RenderBody()
     </div>
@@ -14,4 +30,5 @@
         @await Component.InvokeAsync("Greeting")
     </footer>
 </body>
+
 </html>
