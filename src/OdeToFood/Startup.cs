@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OdeToFood.Services;
 using OdeToFood.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace OdeToFood
 {
@@ -35,6 +36,9 @@ namespace OdeToFood
 
             services.AddDbContext<OdeToFoodDbContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
+            services.AddIdentity<User, IdentityRole>()
+                    .AddEntityFrameworkStores<OdeToFoodDbContext>();
+
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
             services.AddScoped<IRestaurantData, SqlRestaurantData>(); // Each HTTP request will get new instance
@@ -51,6 +55,8 @@ namespace OdeToFood
             app.UseRuntimeInfoPage("/info");
 
             app.UseFileServer();
+
+            app.UseIdentity();
 
             app.UseMvc(ConfigureRoutes);
 

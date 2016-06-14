@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace OdeToFood.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IGreeter _greeter;
@@ -17,6 +18,7 @@ namespace OdeToFood.Controllers
             _greeter = greeter;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomePageViewModel();
