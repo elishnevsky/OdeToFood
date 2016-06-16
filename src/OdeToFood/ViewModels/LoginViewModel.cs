@@ -4,6 +4,7 @@ namespace OdeToFood.ViewModels
 {
     public class LoginViewModel
     {
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [DataType(DataType.Password)]
