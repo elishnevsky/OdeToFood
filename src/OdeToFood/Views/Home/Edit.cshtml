@@ -5,18 +5,20 @@
 <h1>Edit @Model.Name</h1>
 
 <form asp-action="Edit" method="post">
-    <div>
+    <div class="form-group">
         <label asp-for="Name"></label>
-        <input asp-for="Name"/>
+        <input asp-for="Name" class="form-control"/>
         <span asp-validation-for="Name"></span>
     </div>
-    <div>
+    <div class="form-group">
         <label asp-for="Cuisine"></label>
         <select asp-for="Cuisine"
-                asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"></select>
+                asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"
+                class="form-control"
+                style="width: 200px"></select>
         <span asp-validation-for="Cuisine"></span>
     </div>
     <div>
-        <input type="submit" value="Save" />
+        <input type="submit" value="Save" class="btn btn-primary" />
     </div>
 </form>

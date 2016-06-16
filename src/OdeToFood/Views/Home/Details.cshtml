@@ -1,9 +1,13 @@
 ﻿@{ 
     ViewBag.Title = Model.Name;
 }
-<h1>@Model.Name</h1>
-<div>Id: @Model.Id</div>
-<div>Cuisine: @Model.Cuisine</div>
-<div>
+<section class="panel panel-default">
+    <div class="panel-heading"><b>@Model.Name</b></div>
+    <div class="panel-body">
+        <div>Id: @Model.Id</div>
+        <div>Cuisine: @Model.Cuisine</div>
+    </div>
+</section>
+<p>
     @Html.ActionLink("Home", "Index")
-</div>
+</p>

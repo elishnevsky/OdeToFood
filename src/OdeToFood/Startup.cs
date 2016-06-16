@@ -12,6 +12,7 @@ using OdeToFood.Services;
 using OdeToFood.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace OdeToFood
 {
@@ -55,6 +56,8 @@ namespace OdeToFood
             app.UseRuntimeInfoPage("/info");
 
             app.UseFileServer();
+
+            app.UseNodeModules(env);
 
             app.UseIdentity();
 

@@ -6,17 +6,17 @@
 
 @using (Html.BeginForm())
 {
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.EditorFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Name)
     </div>
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Cuisine)
-        @Html.DropDownListFor(m => m.Cuisine, Html.GetEnumSelectList(typeof(CuisineType)))
+        @Html.DropDownListFor(m => m.Cuisine, Html.GetEnumSelectList(typeof(CuisineType)), new { @class = "form-control", style = "width: 200px" })
         @Html.ValidationMessageFor(m => m.Cuisine)
     </div>
     <div>
-        <input type="submit" value="Save" />
+        <input type="submit" value="Save" class="btn btn-primary" />
     </div>
 }
